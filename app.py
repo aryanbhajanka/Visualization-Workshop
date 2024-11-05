@@ -65,8 +65,7 @@ st.markdown("<div class='markdown-text'>Created By: Aryan Bhajanka</div>", unsaf
 
 # Dataset Toggle Section
 st.markdown("<div class='header-text'>Dataset</div>", unsafe_allow_html=True)
-if st.checkbox("Show Dataset"):
-    st.dataframe(tips)
+st.dataframe(tips)
 
 # Displaying plots in a structured layout with columns
 st.markdown("<div class='header-text'>Visualizations</div>", unsafe_allow_html=True)
