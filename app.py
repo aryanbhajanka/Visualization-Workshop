@@ -17,7 +17,7 @@ box = px.box(tips, y="total_bill", x="day", color='time')
 histogram = px.histogram(tips, x="tip", color="sex")
 
 st.title("Data Visualization with Plotly")
-st.markdown(""Created By: Aryan Bhajanka)
+st.markdown("Created By: Aryan Bhajanka")
 
 st.header("Plot 1: Bar Plot - Tips by Day")
 st.plotly_chart(bar)
