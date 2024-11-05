@@ -43,17 +43,6 @@ st.markdown("""
             justify-content: center;
             padding: 10px;
         }
-        /* Styling for centered dataframe */
-        .centered-table {
-            display: flex;
-            justify-content: center;
-            text-align: center;
-            margin: auto;
-        }
-        .centered-table table {
-            margin: auto;
-        }
-        
     </style>
 """, unsafe_allow_html=True)
 
@@ -73,11 +62,6 @@ histogram = px.histogram(tips, x="tip", color="sex", color_discrete_sequence=col
 # App Title and Creator's Name
 st.markdown("<div class='title-text'>Data Visualization with Plotly</div>", unsafe_allow_html=True)
 st.markdown("<div class='markdown-text'>Created By: Aryan Bhajanka</div>", unsafe_allow_html=True)
-
-st.markdown("<div class='header-text'>Dataset</div>", unsafe_allow_html=True)
-if st.checkbox("Show Dataset"):
-    # Convert dataframe to HTML for center alignment
-    st.markdown("<div class='centered-table'>" + tips.to_html(index=False) + "</div>", unsafe_allow_html=True)
 
 # Displaying plots in a structured layout with columns
 st.markdown("<div class='header-text'>Visualizations</div>", unsafe_allow_html=True)
