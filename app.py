@@ -57,10 +57,6 @@ histogram = px.histogram(tips, x="tip", color="sex", color_discrete_sequence=col
 st.markdown("<div class='title-text'>Data Visualization with Plotly</div>", unsafe_allow_html=True)
 st.markdown("<div class='markdown-text'>Created By: Aryan Bhajanka</div>", unsafe_allow_html=True)
 
-# Display a small preview of the dataset
-st.markdown("Dataset Preview", unsafe_allow_html=True)
-st.write(tips.head())  # Display only the first 5 rows
-
 # Dropdown Menu for Selecting Graph Type
 st.markdown("<div class='header-text'>Select Graph Type</div>", unsafe_allow_html=True)
 graph_type = st.selectbox("Choose a graph to display:", 
