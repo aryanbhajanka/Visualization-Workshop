@@ -56,7 +56,7 @@ histogram = px.histogram(tips, x="tip", color="sex", color_discrete_sequence=col
 # App Title and Creator's Name
 st.markdown("<div class='title-text'>Data Visualization with Plotly</div>", unsafe_allow_html=True)
 st.markdown("<div class='markdown-text'>Created By: Aryan Bhajanka</div>", unsafe_allow_html=True)
-st.markdown("<div class='markdown-text'>Section A, B.Tech CSE, 1st Semester</div>", unsafe_allow_html=True)
+st.markdown("<div class='markdown-text'>Section A - B.Tech CSE - 1st Semester</div>", unsafe_allow_html=True)
 st.markdown("<div class='markdown-text'>RV University</div>", unsafe_allow_html=True)
 
 # Dropdown Menu for Selecting Graph Type
