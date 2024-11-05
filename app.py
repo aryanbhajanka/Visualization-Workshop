@@ -58,7 +58,7 @@ st.markdown("<div class='title-text'>Data Visualization with Plotly</div>", unsa
 st.markdown("<div class='markdown-text'>Created By: Aryan Bhajanka</div>", unsafe_allow_html=True)
 
 # Display a small preview of the dataset
-st.markdown("<div class='header-text'>Dataset Preview</div>", unsafe_allow_html=True)
+st.markdown("Dataset Preview", unsafe_allow_html=True)
 st.write(tips.head())  # Display only the first 5 rows
 
 # Dropdown Menu for Selecting Graph Type
