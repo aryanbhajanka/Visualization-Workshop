@@ -6,7 +6,7 @@ import streamlit as st
 # Set page configurations
 st.set_page_config(page_title="Aesthetic Data Visualization", layout="centered")
 
-# Custom CSS for styling
+# Custom CSS for styling and center alignment
 st.markdown("""
     <style>
         /* Page and background color */
@@ -37,11 +37,15 @@ st.markdown("""
             text-align: center;
             margin-bottom: 20px;
         }
-        /* Styling for plotly charts */
-        .plot-container {
+        /* Styling for centered dataframe */
+        .centered-table {
             display: flex;
             justify-content: center;
-            padding: 10px;
+            text-align: center;
+            margin: auto;
+        }
+        .centered-table table {
+            margin: auto;
         }
     </style>
 """, unsafe_allow_html=True)
@@ -63,27 +67,26 @@ histogram = px.histogram(tips, x="tip", color="sex", color_discrete_sequence=col
 st.markdown("<div class='title-text'>Data Visualization with Plotly</div>", unsafe_allow_html=True)
 st.markdown("<div class='markdown-text'>Created By: Aryan Bhajanka</div>", unsafe_allow_html=True)
 
-# Displaying plots in a structured layout with columns
-st.markdown("<div class='header-text'>Visualizations</div>", unsafe_allow_html=True)
+# Dataset Display by Default
+st.markdown("<div class='header-text'>Dataset</div>", unsafe_allow_html=True)
+st.markdown("<div class='centered-table'>" + tips.to_html(index=False) + "</div>", unsafe_allow_html=True)
 
-# Row 1: Bar Plot and Violin Plot
-col1, col2 = st.columns(2)
-with col1:
-    st.markdown("<div class='header-text'>Bar Plot - Tips by Day</div>", unsafe_allow_html=True)
+# Dropdown Menu for Selecting Graph Type
+st.markdown("<div class='header-text'>Select Graph Type</div>", unsafe_allow_html=True)
+graph_type = st.selectbox("Choose a graph to display:", 
+                          ("Dataset", "Bar Plot - Tips by Day", "Violin Plot - Tips by Gender", 
+                           "Scatter Plot - Total Bill vs. Tip (Color-coded by Gender)",
+                           "Box Plot - Distribution of Total Bill by Day (With Color by Time)",
+                           "Histogram - Tip Distribution (With Color)"))
+
+# Display selected graph
+if graph_type == "Bar Plot - Tips by Day":
     st.plotly_chart(bar, use_container_width=True)
-with col2:
-    st.markdown("<div class='header-text'>Violin Plot - Tips by Gender</div>", unsafe_allow_html=True)
+elif graph_type == "Violin Plot - Tips by Gender":
     st.plotly_chart(violin, use_container_width=True)
-
-# Row 2: Scatter Plot
-st.markdown("<div class='header-text'>Scatter Plot - Total Bill vs Tip (Color-coded by Gender)</div>", unsafe_allow_html=True)
-st.plotly_chart(scatter, use_container_width=True)
-
-# Row 3: Box Plot and Histogram
-col3, col4 = st.columns(2)
-with col3:
-    st.markdown("<div class='header-text'>Box Plot - Total Bill by Day (With Color by Time)</div>", unsafe_allow_html=True)
+elif graph_type == "Scatter Plot - Total Bill vs. Tip (Color-coded by Gender)":
+    st.plotly_chart(scatter, use_container_width=True)
+elif graph_type == "Box Plot - Distribution of Total Bill by Day (With Color by Time)":
     st.plotly_chart(box, use_container_width=True)
-with col4:
-    st.markdown("<div class='header-text'>Histogram - Tip Distribution (Color-coded by Gender)</div>", unsafe_allow_html=True)
+elif graph_type == "Histogram - Tip Distribution (With Color)":
     st.plotly_chart(histogram, use_container_width=True)
