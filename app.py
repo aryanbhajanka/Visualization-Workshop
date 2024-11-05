@@ -43,6 +43,12 @@ st.markdown("""
             justify-content: center;
             padding: 10px;
         }
+        .centered-dataframe {
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        
     </style>
 """, unsafe_allow_html=True)
 
@@ -65,7 +71,9 @@ st.markdown("<div class='markdown-text'>Created By: Aryan Bhajanka</div>", unsaf
 
 # Dataset Toggle Section
 st.markdown("<div class='header-text'>Dataset</div>", unsafe_allow_html=True)
+st.markdown("<div class='centered-dataframe'>", unsafe_allow_html=True)
 st.dataframe(tips)
+st.markdown("</div>", unsafe_allow_html=True)
 
 # Displaying plots in a structured layout with columns
 st.markdown("<div class='header-text'>Visualizations</div>", unsafe_allow_html=True)
